@@ -12,4 +12,7 @@ awk -F, '{print $1, $2, $3, $4}' cleanedup | tr -d '{' | tr -d '}' | sort
 ```
  awk -F, '{print $1, $2, $3, $4}' cleanedup | tr -d '{' | tr -d '}' | tr -d '"'| tr ' ' '\n' |sort | grep -v '^$'
 ```
+
+```
 cat beastie | egrep '"name"|fork"' | grep -A1 'true' | grep name
+```
