@@ -16,7 +16,7 @@ BEGIN {
            lang[count] = clang;
            total[count] += amount;
            final +=amount;
-                print final, lang[count];
+                #print final, lang[count];
         }
         else {
          
@@ -25,17 +25,17 @@ BEGIN {
          total[count] = amount;        
          final+=amount;
 
-                print final, lang[count];
+                #print final, lang[count];
             }
         
         #print clang, total[count];
 
 }
 END {
-        print final;
+        print "Total LoC: " final;
         for(x in lang){
             c = (total[x]/final)*100;
-            print lang[x], total[x], c;
+            print lang[x], total[x], c "%";
             }
         #print "Total Amount = $";
 }
