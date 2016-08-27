@@ -1,14 +1,34 @@
+#!/bin/bash
+awk '
 BEGIN {
-        total=0;
+        count=0;
+        FS = ":";
+        plang= $1;
+        total[count] = "";
+        lang[count] = "";
 }
 {
-        lang=$1;
-        book=$2;
-        bookamount=$3*$4;
-        total=total+bookamount;
-        print itemno," ", book,"\t","$"bookamount;
+        clang=$1;
+        amount=$2;
+        #print lang[count];
+        if (clang == lang[count] || lang[count]=="") {
+           lang[count] = clang;
+           total[count] += amount;
+                #print "";
+        t}
+        else {
+         lang[count] = clang;
+         total[count] = amount;        
+         count++;
+            }
+        
+        #print clang, total[count];
+
 }
 END {
-        print "Total Amount = $"total;
+        for(x in lang){
+            print lang[x], total[x];
+            }
+        #print "Total Amount = $";
 }
-
+' cleanedup2
