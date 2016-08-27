@@ -6,6 +6,7 @@ BEGIN {
         plang= $1;
         total[count] = "";
         lang[count] = "";
+        final = 0;
 }
 {
         clang=$1;
@@ -14,20 +15,27 @@ BEGIN {
         if (clang == lang[count] || lang[count]=="") {
            lang[count] = clang;
            total[count] += amount;
-                #print "";
-        t}
+           final +=amount;
+                print final, lang[count];
+        }
         else {
+         
+         count++;
          lang[count] = clang;
          total[count] = amount;        
-         count++;
+         final+=amount;
+
+                print final, lang[count];
             }
         
         #print clang, total[count];
 
 }
 END {
+        print final;
         for(x in lang){
-            print lang[x], total[x];
+            c = (total[x]/final)*100;
+            print lang[x], total[x], c;
             }
         #print "Total Amount = $";
 }
