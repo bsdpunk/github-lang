@@ -29,7 +29,7 @@ cat preclean |perl -pe "s/(\d+|\d)([A-Za-z])/\1\n\2/gi" | grep -v 'HTML'| grep -
 #cat preclean
 bash tottals.awk
 bash output.awk > loc.csv
-Rscript locgraph.R
+Rscript locgraph.R $GHUSER
 rm -rf list 
 rm -rf repos
 rm -rf lang
