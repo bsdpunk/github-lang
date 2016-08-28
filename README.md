@@ -1,18 +1,13 @@
 # github-lang
+Get language usage statistics on a github user.
+Does not count forked projects.
+Does not count HTML or CSS as a language.
 
-
-```
-http https://api.github.com/users/bsdpunk/repos |python -m json.tool| grep '"name"' | awk -F: '{print $2}' | tr -d \" | tr -d , > repos
-```
-
-```
-awk -F, '{print $1, $2, $3, $4}' cleanedup | tr -d '{' | tr -d '}' | sort
-```
+Best use with a github token.
 
 ```
- awk -F, '{print $1, $2, $3, $4}' cleanedup | tr -d '{' | tr -d '}' | tr -d '"'| tr ' ' '\n' |sort | grep -v '^$'
+bash get_percentages.sh
 ```
 
-```
-cat beastie | egrep '"name"|fork"' | grep -A1 'true' | grep name
-```
+Will ask if you have a token, then ask for the user you want.
+
