@@ -19,14 +19,15 @@ Enter your github token, if you have one. Otherwise hit enter:
 
 Enter which github user you would like to check percentages on: bsdpunk
 
-Total LoC: 364832
-AppleScript 696 0.190773%
-Go 6761 1.85318%
-JavaScript 8323 2.28132%
-Perl 22165 6.0754%
-PHP 20528 5.6267%
-Python 302957 83.0401%
-R 1805Shell 0.494748%
-Shell 1597Awk 0.437736%
+Total LoC: 366831
+AppleScript 696 0.189733%
+Awk 539 0.146934%
+Go 6761 1.84308%
+JavaScript 8323 2.26889%
+Perl 23081 6.292%
+PHP 20528 5.59604%
+Python 302957 82.5876%
+R 1805 0.492052%
+Shell 2141 0.583648
 ```
 
