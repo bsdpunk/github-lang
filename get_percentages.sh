@@ -20,13 +20,16 @@ http https://api.github.com/users/$GHUSER/repos$CMD |python -m json.tool | egrep
 #sleep 1
 cat list | sed '/true/,+1d' | grep '"name"' | awk -F: '{print $0}' | tr -d '{' | tr -d '}' | tr -d '"' |sort | grep -v '^$'  | sed 's/^.*name://gi' | tr -d ',' >> repos
 for i in $(cat repos); do echo '' >> lang && http https://api.github.com/repos/$GHUSER/$i/languages$CMD >> lang; done;
-awk -F, '{print $0}' lang | tr -d '{' | tr -d '}' | tr -d '"'| tr ' ' '\n' |sort |grep -v 'HTML'| grep -v 'CSS'| grep -v '^$' | tr -d ',' >> clean
+awk -F, '{print $0}' lang | tr -d '{' | tr -d '}' | tr -d '"'| tr ' ' '\n' |sort | grep -v '^$' | tr -d ',' >> preclean
+cat preclean |perl -pe "s/(\d+|\d)([A-Za-z])/\1\n\2/gi" | grep -v 'HTML'| grep -v 'CSS' | sort >> clean
 #cat clean
 #cat list
 #cat lang
 #cat repos
+#cat preclean
 bash tottals.awk
 rm -rf list 
 rm -rf repos
 rm -rf lang
 rm -rf clean
+rm -rf preclean
