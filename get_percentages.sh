@@ -28,8 +28,11 @@ cat preclean |perl -pe "s/(\d+|\d)([A-Za-z])/\1\n\2/gi" | grep -v 'HTML'| grep -
 #cat repos
 #cat preclean
 bash tottals.awk
+bash output.awk > loc.csv
+Rscript locgraph.R
 rm -rf list 
 rm -rf repos
 rm -rf lang
 rm -rf clean
 rm -rf preclean
+rm -rf loc.csv
