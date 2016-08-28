@@ -1,5 +1,3 @@
-#!/bin/bash
-awk '
 BEGIN {
     count=0;
     FS = ":";
@@ -32,5 +30,4 @@ END {
         c = (total[x]/final)*100;
         print lang[x], total[x], c "%";
     }
-}
-' clean
+
