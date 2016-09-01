@@ -32,3 +32,14 @@ Shell 6775 2.36785%
 VimL 934 0.326432%
 ```
 ![BSDPunk LOC Graph](loc.png)
+
+
+
+
+#Get Code Freq/Punch
+Need to have your github token in ~/.gh
+
+```
+bash get_freq.sh
+bash get_punch.sh
+```
