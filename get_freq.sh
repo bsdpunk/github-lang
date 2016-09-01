@@ -26,4 +26,4 @@ http https://api.github.com/repos/$GHUSER/$REPO/stats/code_frequency$GTOKEN |pyt
 
 #sleep 1
 
-#http https://api.github.com/repos/bsdpunk/trash/stats/participation?access_token=4092baffd1ba7051284aa10e79551a2e01fe1523
+#http https://api.github.com/repos/bsdpunk/trash/stats/participation?access_token=
