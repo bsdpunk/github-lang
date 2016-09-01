@@ -2,22 +2,23 @@
 
 #get token
 #printf "Git: "
-#read -r CMD 
-#    if [ -z $CMD ]
+#read -r GTOKEN 
+#    if [ -z $GTOKEN ]
 #    then
-#        CMD=""
+#        GTOKEN=""
 #    else
-#        CMD="?access_token=$CMD"
+#        GTOKEN="?access_token=$GTOKEN"
 #    fi
-#echo $CMD;
+#echo $GTOKEN;
 #get user
 #echo ''
 #printf 'Enter which github user you would like to check percentages on: '
 #read -r GHUSER
 
-#echo 'https://api.github.com/users/bsdpunk/repos'$CMD
-CMD=$(cat ~/.gh)
-CMD="?access_token=$CMD"
-http https://api.github.com/notifications$CMD |python -m json.tool 
+#echo 'https://api.github.com/users/bsdpunk/repos'$GTOKEN
+GTOKEN=$(cat ~/.gh)
+GTOKEN="?access_token=$GTOKEN"
+http https://api.github.com/notifications$GTOKEN |python -m json.tool | grep -A5 subject
+
 #sleep 1
 
