@@ -1,4 +1,4 @@
-#!/bIN/BASh
+#!/bin/bash
 
 #get token
 #printf "Enter your github token, if you have one. Otherwise hit enter: "
@@ -13,11 +13,11 @@
 #get user
 GTOKEN=$(cat ~/.gh)
 CMD="?access_token=$GTOKEN"
-
+alias sed='gsed'
 echo ''
 printf 'Enter which github user you would like to check percentages on: '
 read -r GHUSER
-export GHUSER=$GHUSER
+
 #echo 'https://api.github.com/users/bsdpunk/repos'$CMD
 http https://api.github.com/users/$GHUSER/repos$CMD |python -m json.tool | egrep '"name"|"fork"' > list
 #sleep 1
@@ -27,18 +27,11 @@ awk -F, '{print $0}' lang | tr -d '{' | tr -d '}' | tr -d '"'| tr ' ' '\n' |sort
 cat preclean |perl -pe "s/(\d+|\d)([A-Za-z])/\1\n\2/gi" | grep -v 'HTML'| grep -v 'CSS' | sort >> clean
 
 bash tottals.awk
-
-bash csv.awk 
-#gsed 's/$/,$GHUSER' > locuser.csv
-#gsed -e "s/$/,${GHUSER}/" loc.csv >> locuser.csv
-head -n1 loc.csv >> locuser.csv 
-tac locuser.csv > locusertwo.csv
-Rscript loctwo.R $GHUSER 2>&1 >/dev/null
+bash output.awk > loc.csv
+Rscript locgraphq.R $GHUSER 2>&1 >/dev/null
 rm -rf list 
 rm -rf repos
 rm -rf lang
 rm -rf clean
 rm -rf preclean
-rm -rf loc.csv
-rm -rf locuser.csv
-rm -rf locusertwo.csv
+#rm -rf loc.csv

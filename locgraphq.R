@@ -1,0 +1,5 @@
+library(ggplot2)
+locs <- read.csv('loc.csv', header=TRUE, sep=",")
+png("loc.png")
+qplot(x =locs$language,y =locs$LoC, color=locs$language, xlab = "Language", ylab = "Lines Of Code", main = commandArgs(TRUE)[1], geom = "boxplot")
+dev.off()
