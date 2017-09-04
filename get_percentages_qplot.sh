@@ -34,4 +34,4 @@ mv repos repos.old
 rm -rf lang
 rm -rf clean
 rm -rf preclean
-#rm -rf loc.csv
+rm -rf loc.csv
